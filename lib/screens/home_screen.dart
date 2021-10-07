@@ -148,7 +148,7 @@ class HomeScreen extends StatelessWidget {
                   iconSize: 18,
                   onPressed: () {},
                 ),
-                hintText: 'Search Food or Restaurant',
+                hintText: 'Search For a WorkShop ',
                 hintStyle: const TextStyle(fontSize: 14),
               ),
             ),
