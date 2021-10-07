@@ -23,7 +23,7 @@ class FoodDelivery extends StatelessWidget {
               brightness: Brightness.dark,
             ),
       ),
-      home: HomeScreen(title: 'Food Delivery'),
+      home: HomeScreen(title: 'WorkShops'),
     );
   }
 }

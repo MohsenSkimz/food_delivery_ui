@@ -31,11 +31,11 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15.0),
                 border: Border.all(
-                  color: Colors.grey[300],
+                  color: Colors.grey[500],
                   width: 0.8,
                 ),
               ),
-              margin: const EdgeInsets.symmetric(vertical: 5),
+              margin: const EdgeInsets.symmetric(vertical: 8),
               child: Row(
                 children: <Widget>[
                   ClipRRect(
@@ -55,7 +55,6 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
                             restaurant.name,
@@ -106,33 +105,12 @@ class HomeScreen extends StatelessWidget {
         title: Text(title),
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.account_circle),
+          icon: const Icon(Icons.list),
           iconSize: 30.0,
           color: Colors.white,
           onPressed: () {},
         ),
-        actions: <Widget>[
-          FlatButton(
-            child: Text(
-              'Cart (${user.cart.length})',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30.0),
-            ),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => CartScreen(),
-              ),
-            ),
-            splashColor: Colors.white24,
-            highlightColor: Colors.white12,
-          ),
-        ],
+        actions: <Widget>[],
       ),
       body: ListView(
         children: <Widget>[
