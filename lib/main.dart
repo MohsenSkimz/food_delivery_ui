@@ -11,7 +11,7 @@ class FoodDelivery extends StatelessWidget {
       title: 'Food Delivery',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
+        primarySwatch: Colors.red,
         scaffoldBackgroundColor: Colors.grey[200],
         appBarTheme: ThemeData.light().appBarTheme.copyWith(
               textTheme: ThemeData.light().textTheme.copyWith(

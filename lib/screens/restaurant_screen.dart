@@ -53,7 +53,7 @@ class RestaurantScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -97,90 +97,12 @@ class RestaurantScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ),
+          )
         ],
       ),
     );
 
-    Widget _buildMenuItems(Food menuItem) {
-      return Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        child: Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: DecorationImage(
-                  image: AssetImage(menuItem.imgUrl),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                    Colors.black87,
-                    Colors.black54,
-                    Colors.black54,
-                    Colors.black54,
-                  ],
-                  stops: [0.2, 0.5, 0.6, 0.8],
-                ),
-              ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  menuItem.name,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                    letterSpacing: 1.1,
-                  ),
-                ),
-                const SizedBox(height: 6.0),
-                Text(
-                  '\$${menuItem.price}',
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-            Positioned(
-              right: 10.0,
-              bottom: 10.0,
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.add_rounded),
-                  color: Colors.white,
-                  padding: const EdgeInsets.all(0),
-                  iconSize: 25,
-                  onPressed: () {},
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
+    Widget _buildMenuItems(Food menuItem) {}
 
     return Scaffold(
       body: Column(
@@ -222,14 +144,6 @@ class RestaurantScreen extends StatelessWidget {
                   const SizedBox(height: 20.0),
                   restaurantDetails,
                   const SizedBox(height: 10.0),
-                  const Text(
-                    'Our Menus',
-                    style: const TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1.2,
-                    ),
-                  ),
                   Container(
                     height: isLandscape
                         ? (deviceWidth / 2) * (menuItem / 2).ceil() -
