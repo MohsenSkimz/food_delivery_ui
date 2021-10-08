@@ -111,8 +111,6 @@ class RestaurantScreen extends StatelessWidget {
       ),
     );
 
-    Widget _buildMenuItems(Food menuItem) {}
-
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -145,22 +143,6 @@ class RestaurantScreen extends StatelessWidget {
                   const SizedBox(height: 20.0),
                   restaurantDetails,
                   const SizedBox(height: 10.0),
-                  Container(
-                    height: MediaQuery.of(context).size.height,
-                    child: GridView.builder(
-                      padding: const EdgeInsets.only(top: 5),
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: menuItem,
-                      itemBuilder: (BuildContext context, int index) {
-                        return _buildMenuItems(restaurant.foods[index]);
-                      },
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 20,
-                        mainAxisSpacing: 20,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
