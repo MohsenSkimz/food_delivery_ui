@@ -12,7 +12,7 @@ class RestaurantScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final bool isLandscape = mediaQuery.orientation == Orientation.landscape;
+
     final double deviceWidth = mediaQuery.size.width;
     final int menuItem = restaurant.foods.length;
 
@@ -21,26 +21,14 @@ class RestaurantScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                restaurant.name,
-                style: const TextStyle(
-                  fontSize: 16.5,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.9,
-                ),
-              ),
-              Text(
-                '${restaurant.distance} miles away',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87.withOpacity(0.7),
-                ),
-              ),
-            ],
+          const SizedBox(height: 5.0),
+          Text(
+            restaurant.name,
+            style: const TextStyle(
+              fontSize: 16.5,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 0.9,
+            ),
           ),
           const SizedBox(height: 5.0),
           RatingStars(restaurant.rating),
@@ -59,12 +47,12 @@ class RestaurantScreen extends StatelessWidget {
               children: <Widget>[
                 FlatButton(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0,
+                    horizontal: 30.0,
                     vertical: 10.0,
                   ),
                   color: Theme.of(context).primaryColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: const Text(
                     'Reviews',
@@ -78,12 +66,12 @@ class RestaurantScreen extends StatelessWidget {
                 ),
                 FlatButton(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0,
+                    horizontal: 30.0,
                     vertical: 10.0,
                   ),
                   color: Theme.of(context).primaryColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: const Text(
                     'Contact Us',
@@ -97,7 +85,28 @@ class RestaurantScreen extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            FlatButton(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 100.0,
+                vertical: 10.0,
+              ),
+              color: Theme.of(context).primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: const Text(
+                'Request',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
+              ),
+              splashColor: Colors.white38,
+              onPressed: () {},
+            )
+          ]),
         ],
       ),
     );
@@ -109,9 +118,7 @@ class RestaurantScreen extends StatelessWidget {
         children: <Widget>[
           Stack(
             children: <Widget>[
-              isLandscape
-                  ? HeroImage(restaurant, 0.55)
-                  : HeroImage(restaurant, 0.4),
+              HeroImage(restaurant, 0.4),
               Container(
                 padding: const EdgeInsets.symmetric(
                   vertical: 40.0,
@@ -126,12 +133,6 @@ class RestaurantScreen extends StatelessWidget {
                       color: Colors.white,
                       onPressed: () => Navigator.pop(context),
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.favorite),
-                      iconSize: 35.0,
-                      color: Colors.redAccent,
-                      onPressed: () {},
-                    ),
                   ],
                 ),
               ),
@@ -145,14 +146,7 @@ class RestaurantScreen extends StatelessWidget {
                   restaurantDetails,
                   const SizedBox(height: 10.0),
                   Container(
-                    height: isLandscape
-                        ? (deviceWidth / 2) * (menuItem / 2).ceil() -
-                            (deviceWidth / 2.4)
-                        : (deviceWidth / 2) * (menuItem / 2).ceil() - 35,
-                    padding: EdgeInsets.only(
-                      left: isLandscape ? deviceWidth / 8 : 20,
-                      right: isLandscape ? deviceWidth / 8 : 20,
-                    ),
+                    height: MediaQuery.of(context).size.height,
                     child: GridView.builder(
                       padding: const EdgeInsets.only(top: 5),
                       physics: NeverScrollableScrollPhysics(),

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:food_delivery_ui/data.dart';
 import 'package:food_delivery_ui/screens/restaurant_screen.dart';
-import 'package:food_delivery_ui/screens/cart_screen.dart';
-import 'package:food_delivery_ui/widgets/recent_orders.dart';
 import 'package:food_delivery_ui/widgets/rating_stars.dart';
 import 'package:food_delivery_ui/models/restaurant.dart';
 
@@ -153,7 +151,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          RecentOrders(),
           Padding(
             padding: const EdgeInsets.only(left: 15, top: 20),
             child: const Text(
